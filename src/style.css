@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html {
+  font-family: "Open sans", sans-serif;
+}
+
+.global-wrapper {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    "header"
+    "content";
+}
+
+.header {
+  grid-area: header;
+  position: fixed;
+  border-bottom: 1px black solid; 
+  background-color: white;
+  width: 100%;
+}
+
+.icons {
+  float: left;
+  margin: 15px 0;
+}
+
+.header > .icons > * {
+  color: black;
+  margin: 30px 8px;
+}
+
+.header h1 {
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 24px;
+  font-weight: 800;
+  margin-left: 10px;
+}
+
+.content {
+  grid-area: content;
+}
+
+@media (min-width: 700px) {
+  .global-wrapper {
+    grid-template-columns: 80px 1fr;
+    grid-template-areas:
+      "header content"
+      "header content"
+   }
+
+   .header {
+    position: fixed;
+    width: 80px;
+    /* top: 25px; */
+    height: 100vh;
+
+    border-right: 1px black solid;
+    border-bottom: none;
+   }
+
+  .header > .icons > * {
+    display: block;
+    margin: 15px 30px;
+  }
+
+   .header h1 {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    margin: 1em 25px;
+   }
+
+   main {
+    margin-left: 10px;
+   }
+}
