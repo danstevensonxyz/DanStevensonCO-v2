@@ -30,13 +30,22 @@ html {
   margin: 30px 8px;
 }
 
+#header-github-icon, 
+#header-twitter-icon, 
+#header-linkedin-icon {
+  display: none;
+}
+
 .header h1 {
   float: left;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 24px;
   font-weight: 800;
-  margin-left: 10px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
 }
 
 .content {
@@ -61,12 +70,22 @@ html {
     border-bottom: none;
    }
 
+  #header-github-icon, 
+  #header-twitter-icon, 
+  #header-linkedin-icon {
+    display: block;
+  }
+
   .header > .icons > * {
     display: block;
     margin: 15px 30px;
   }
 
-   .header h1 {
+  .header h1 {
+    position: relative;
+    text-align: center;
+    width: auto;
+
     writing-mode: vertical-lr;
     transform: rotate(180deg);
 
@@ -74,9 +93,9 @@ html {
     line-height: normal;
     vertical-align: middle;
     margin: 1em 25px;
-   }
+  }
 
-   main {
-    margin-left: 10px;
-   }
+  main {
+  margin-left: 10px;
+  }
 }
