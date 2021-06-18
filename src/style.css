@@ -4,13 +4,39 @@ html {
   font-family: "Open sans", sans-serif;
 }
 
+
 .global-wrapper {
+  overflow-x: hidden;
   display: grid;
   grid-template-rows: 80px 1fr;
   grid-template-areas:
     "header"
     "content";
 }
+
+nav {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  /* Clear header height */
+  margin-top: 55px;
+  background-color: red;
+  opacity: 1;
+}
+
+#nav--closed {
+  left: -100%;
+  transition: .5s ease-in-out;
+}
+
+#nav--open {
+  left: 0%;
+  transition: .5s ease-in-out;
+}
+
+/* nav ul {
+  margin-top: 100px;
+} */
 
 .header {
   grid-area: header;
@@ -21,6 +47,7 @@ html {
 }
 
 .icons {
+  position: absolute;
   float: left;
   margin: 15px 0;
 }
@@ -42,10 +69,22 @@ html {
   letter-spacing: 0.1em;
   font-size: 24px;
   font-weight: 800;
-  position: absolute;
   text-align: center;
-  width: 100%;
+  width: 100vw;
 
+}
+
+main {
+  width: 100%;
+}
+
+#nav--open ~ main {
+  margin-left: 100%;
+  transition: .5s ease-in-out;
+}
+
+#nav--closed ~ main {
+  transition: .5s ease-in-out;
 }
 
 .content {
@@ -60,15 +99,35 @@ html {
       "header content"
    }
 
-   .header {
-    position: fixed;
-    width: 80px;
-    /* top: 25px; */
-    height: 100vh;
+  nav {
+    width: 400px;
+    margin-top: 0px;
+  }
 
-    border-right: 1px black solid;
-    border-bottom: none;
-   }
+  #nav--closed {
+    left: -320px;
+    transition: .75s ease-in-out;
+  }
+  
+  #nav--open {
+    transition: .75s ease-in-out;
+    /* Clear sidebar width */
+    left: 80px;
+  }
+
+  .header {
+  position: fixed;
+  width: 80px;
+  /* top: 25px; */
+  height: 100vh;
+
+  border-right: 1px black solid;
+  border-bottom: none;
+  }
+
+  .icons {
+    position: relative;
+  }
 
   #header-github-icon, 
   #header-twitter-icon, 
@@ -95,7 +154,19 @@ html {
     margin: 1em 25px;
   }
 
+  
   main {
-  margin-left: 10px;
+    margin-left: 10px;
   }
+  
+  #nav--open ~ main {
+    margin-left: 400px;
+    transition: .75s ease-in-out;
+  }
+
+  #nav--closed ~ main {
+    margin-left: 10px;
+    transition: .75s ease-in-out;
+  }
+
 }
